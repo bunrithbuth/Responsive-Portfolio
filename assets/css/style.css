@@ -11,17 +11,18 @@ header {
 }
 
 .headercontent {
-    width: 960px;
+    max-width: 980px;
     height: 100%;
     position: relative;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .headerlogo {
    width: 300px;
    height: 100%;
    background-color: #4aaaa5;
-   display: inline-block;
 }
 
 .headerlogo:hover { 
@@ -29,10 +30,9 @@ header {
 }
 
 .headerRightNav {
-    right: 0px;
-    display: inline-block;
-    position: absolute;
-    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    font-size: 19px;
 }
 
 .headerRightNav a {
@@ -55,7 +55,7 @@ header {
 
 /** footer **/
 footer {
-    position:fixed;
+    position: fixed;
     bottom:0;
     width:100%;
     height: 60px;
@@ -69,28 +69,29 @@ footer {
 }
 
 /** content **/
-#mainFrame {
-    background-image: url("../images/random_grey_variations.png");
-    width: 100%;
-    height: 110vh;   
-}
-
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 18px;
     margin: 0px;
+    background-image: url("../images/random_grey_variations.png");
 }
 
-#body {
-    width: 960px;
-    min-height: 400px;
+#mainFrame {
+    /** for footer **/
+    margin-bottom: 60px;
+    min-height: 110vh;
+    max-width: 980px;
+    margin: auto;
+}
+
+#body {    
+    width: 640px;
     position: relative;
     top: 30px;
     background-color: whitesmoke;
     border: 1px solid #dddddd;
     padding: 20px;
     padding-top: 40px;
-    margin: auto;
     color: #777;
     line-height: 30px;
 }
@@ -110,6 +111,10 @@ body {
     overflow: hidden;
     margin-top: 40px;
     margin-bottom: 30px;
+}
+
+.buttonlink {
+    text-decoration: none;
 }
 
 .buttonimg {
@@ -153,25 +158,32 @@ body {
 /** portfolio **/
 
 .project {
-    width: 280px;
+    width: 98%;
     height: 220px;
     background-color: black;
-    margin-bottom: 20px;
-    margin-right:20px;
     position: relative;
     display: inline-block;
     background-size: cover;
 }
 
-.project1 {
-    background-image: url("../images/websiteimg.jpg");
+.row {
+    margin: 0px !important;
+    justify-content: space-between;
+    padding-bottom: 20px;
 }
 
-/**
-.projectmylaravel { background-image: url("../images/websiteimg.jpg"); object-fit: cover; }
-**/
+.col-6 {
+    max-width: 98% !important;
+    padding: 0px !important;
+
+}
+
+.project1 {
+    background-image: url("../images/websiteimg.jpg");
+    background-size: cover;
+}
+
 .projectname {
-    width: 100%;
     height: 60px;
     background-color: #4aaaa5;
     margin-top: 150px;
@@ -179,8 +191,71 @@ body {
     padding-top: 15px;
     font-size: 18px;
     color: white;
+    position: relative;
 }
 
 .projectname:hover { 
     background-color: pink; 
+}
+
+
+/****************************************/
+/************* media screen *************/
+/****************************************/
+
+
+@media screen and (max-width: 980px)  {
+    .headerRightNav {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    
+    #body {
+        top: 89px;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .headercontent, .headerlogo, .headerRightNav {
+        display: block;
+        width: 100%;
+    }
+
+    .headerRightNav {
+        margin: auto;
+        text-align: center;
+        background-color: white;
+        height: 60px;
+        padding-top: 15px;
+    }
+
+    .row {
+        padding-bottom: 0px !important;
+    }
+    .col-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .project {
+        height: 300px;
+    }
+
+    .projectname {
+        margin-top: 230px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px)  {
+    /* follows 640px width non-exclusive */
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px)  {
+    /* just a regular screen */
 }
